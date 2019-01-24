@@ -34,7 +34,7 @@ Now let's create a table where we compute the average happiness score for all of
    - :33: Is the correct answer
      :x: Check your ranges carefully
 
-Now lets create a column that sums the happiness score for each region using the SUMIF function.  The SUMIF function is a bit more complicated than COUNTIF in that it takes a separate (parallel) range for us to SUM.  Once again the first parameter will be the range containing the regions, the second parameter will be the name of a region to match, but the third parameter is the range of cells containing the happiness scores.  When a row in the Region column matches the given Region the function includes the value from the Happiness score column in the sum.
+Now let's create a column that sums the happiness score for each region using the SUMIF function.  The SUMIF function is a bit more complicated than COUNTIF in that it takes a separate (parallel) range for us to SUM.  Once again the first parameter will be the range containing the regions, the second parameter will be the name of a region to match, but the third parameter is the range of cells containing the happiness scores.  When a row in the Region column matches the given Region the function includes the value from the Happiness score column in the sum.
 
 .. fillintheblank:: fb_happy_sum
 
@@ -73,7 +73,9 @@ With a column for count and a column for the sum you can now calculate the avera
 
    What is the happiest country in East Asia?  |blank|
 
-   - :Taiwan Province: Is the correct answer
+   - :Taiwan Province of China: This is the correct answer.
+     :Taiwan: Give the full name from the spreadsheet.
+     :Taiwan Province: Give the full name from the spreadsheet.
      :x: Keep checking
 
 
@@ -93,7 +95,7 @@ The idea goes like this.  On our happiness spreadsheet we have a column that con
 
 When we use VLOOKUP our goal is to join together these two sheets adding columns to the happiness sheet using values from the row in the countries of the world sheet from the row where the country names match.  For example in our happiness sheet Ireland is on row 15 but in the countries of the world sheet it is on row 101.  What we want to do is take (at least) column B row 101 from the countries sheet and add it to the happiness sheet on row 15 column M.
 
-With VLOOKUP with do this by allowing the function to search for the value in one cell in another column, and then return the value from a different cell in the same row but in some other column.  To find the continent of Israel we would use VLOOKUP(A15, Sheet1!$A$6:$F$229, 5, FALSE)
+With VLOOKUP with do this by allowing the function to search for the value in one cell in another column, and then return the value from a different cell in the same row but in some other column.  To find the continent of Ireland we would use VLOOKUP(A15, Sheet1!$A$6:$F$229, 5, FALSE)
 
 Let's unpack that:
 
@@ -101,7 +103,7 @@ A15 is the cell containing Ireland
 
 Sheet1!$A$6:$F$229 the range of cells we can search in as well as get values from.
 
-2 tells Sheets that when we find a match for Israel we want the value from the same row but in column 2 of our range.  (Sigh -- sheets and Python use different counting systems)
+2 tells Sheets that when we find a match for Ireland we want the value from the same row but in column 2 of our range.  (Sigh -- sheets and Python use different counting systems)
 
 Notice that column 5 of our range is the continent/Region column! Nice  You may have noticed that VLOOKUP is a bit like using match and index together, but it is a little less flexible as the column you search in must always be on the far left side of the range.
 
